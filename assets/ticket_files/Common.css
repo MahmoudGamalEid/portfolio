@@ -1,0 +1,306 @@
+
+/** --------------- Bootstrap override - Accessibility  section ------------- */
+/** We must take care take care of the user browser setting (fonts etc...) */
+body {
+  /* Body is reduced to 10px in bootstrap to make easier the calculation in em */
+  /* We define here 14px as default text value */
+  font-size: 1.4em;
+}
+
+/* 30px */
+h1 { font-size: 2.15em; }
+/* 24px */
+h2 { font-size: 1.71em; }
+/* 18px */
+h3 { font-size: 1.28em; }
+/* 18px */
+h4 { font-size: 1.28em; }
+/* 14px */
+h5 { font-size: 1em; }
+/* 12px */
+h6 { font-size: 0.85em; }
+
+/* TODO - Change '%' into 'em' to follow our accessibility guideline */
+.btn {
+  font-size: 100%
+}
+
+.btn > span {
+  display: inline-block;
+}
+
+html[dir="ltr"] .btn > span::first-letter {
+  text-transform: capitalize;
+}
+
+html[dir="ltr"][lang="th"] .btn > span::first-letter {
+  text-transform: none;
+}
+
+/* Workaround to revert issues with Arabic language caused by:
+ * '''span::fist-letter { text-transform: capitalize }'''
+ * Fixes Chrome, IE and Firefox
+ */
+.btn:lang(AR) > span {
+  display: inline;
+  float: none;
+}
+
+input[type="date"] {
+  line-height: initial !important;
+
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+}
+/** --------------------- Miscellaneous ------------------ */
+/* To be applied on h2 (1.71em/~24px) => 120% == 30px */
+.page-title {
+  text-transform:uppercase;
+}
+/* TODO - To be removed */
+/* To keep clean our css we should avoid such simple classes replacing by a functional one */
+.no-wrap-text {
+  white-space: nowrap;
+}
+
+/** --------------------- Loading section ------------------ */
+.loading {
+  position: fixed;
+  z-index: 9000;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*background-image:url("../modules/PURC/desktop/resources/img/07-purc_08-interstitial.png") no-repeat scroll 0 0;*/
+  background-color: #fff;
+}
+
+.loading.loading-component{
+  position: absolute;
+}
+.loading-content {
+  position: fixed;
+  z-index: 9010;
+  top: 50%;
+  left:50%;
+  margin:auto;
+  text-align: center;
+}
+
+.loading-content.loading-content-component{
+  position: absolute;
+}
+.loading-content .loading-image {
+  width: 40px;
+  height: 40px;
+}
+/* In case we want to use a div instead of an img tag */
+.loading-content div.loading-image {
+  background-image: url('../resources/img/loading.gif');
+  background-size:contain;
+}
+
+
+/** --------------------- Forms and Errors section ------------------ */
+/* TODO - To be removed, global error are display in .alert container defined in bootstrap */
+.global-error-container {
+  left: 0;
+  right: 0;
+  margin : 0;
+  padding: 0;
+}
+
+.global-error ul, .form-global-error ul {
+   list-style: none;
+   padding:0;
+   margin:0;
+}
+
+.global-error ul > li, .gform-global-error ul > li {
+  line-height:26px;
+}
+
+.global-error ul > li:before, .form-global-error ul > li:before {
+  content: "\002022";
+  font-size:26px;
+  padding-right:10px;
+  vertical-align:middle;
+  font-weight:bold;
+}
+
+.global-error ul.error > li:before, .form-global-error ul.error > li a, .form-global-error ul.error > li:before,
+.global-error ul.warning > li:before, .form-global-error ul.warning > li:before,  .global-error ul.error > li a {
+   color:#ce0058;
+}
+
+/* TODO - To be rename as text-mandatory to follow our css guideline. */
+/* TODO - Need to change the mandatory string 'tx_pltg_text_MandatoryFieldIndicator' in DB that contain this class */
+.textMandatory {
+  font-weight: normal;
+}
+/* Widget container must be apply to a widget that contains embeddedWidget */
+.widget-container {
+  margin-bottom: 0px;
+}
+
+.has-feedback .form-control-feedback.withoutLabel {
+  top: 0px;
+}
+
+.widgetDisabled {
+  background-color:blue;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+.icon-block {
+	display: block;
+	padding-left: 3px;
+	padding-bottom: 1px;
+}
+
+.fixed {
+  position: fixed;
+}
+
+/** Native browser sticky */
+.sticky {
+  position: sticky!important;
+  position: -webkit-sticky!important;
+  top: 0;
+}
+
+.stick-top {
+  top: 0;
+}
+
+.stick-bottom {
+  bottom: 0;
+}
+
+/** Mobile / Tablet Error Style */
+.plnext-message .middle {
+  margin-top: 10px;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error {
+  list-style: initial;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li:only-child,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li:only-child {
+  list-style-type: none;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li {
+  display: list-item;
+  list-style-type: initial;
+  color: #ce0058;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li:last-child,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li:last-child {
+  padding-bottom: 0;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li > span,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li > span,
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error> li > a,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li > a {
+  font-size: 14px;
+  line-height: 27px;
+  vertical-align: bottom;
+  color: #333333;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li > a,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li > a {
+  color: #ce0058;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li:before,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li:before {
+  content: none;
+  padding: 0;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li:before,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li:before {
+  content: "\002022";
+  font-size: 26px;
+  padding-right: 10px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original ul.error > li,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original ul.error > li {
+  padding-bottom: 0px;
+  list-style-type: none;
+}
+
+[data-page-device-type="TABLET"] .form-global-error.message-panel-original .hide-error,
+[data-page-device-type="MOBILE"] .form-global-error.message-panel-original .hide-error {
+  display: none;
+}
+
+[data-page-device-type="TABLET"] .plnext-message .alert-icon,
+[data-page-device-type="MOBILE"] .plnext-message .alert-icon {
+  vertical-align: bottom;
+}
+
+[data-page-device-type="MOBILE"] #main-layout-bottom,
+[data-page-device-type="TABLET"] #main-layout-bottom,
+[data-page-device-type="MOBILE"] #page-template-footer,
+[data-page-device-type="TABLET"] #page-template-footer,
+[data-page-device-type="MOBILE"] #main-layout-footer,
+[data-page-device-type="TABLET"] #main-layout-footer {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+  [data-page-device-type="TABLET"] .alert,
+  [data-page-device-type="MOBILE"] .alert {
+    padding: 10px;
+  }
+
+  [data-page-device-type="TABLET"] .form-global-error ul.error,
+  [data-page-device-type="MOBILE"] .form-global-error ul.error {
+    margin-left: 20px;
+  }
+
+  [data-page-device-type="TABLET"] .form-global-error ul.error > li:only-child,
+  [data-page-device-type="MOBILE"] .form-global-error ul.error > li:only-child  {
+     margin-left: -20px;
+  }
+
+  [data-page-device-type="TABLET"] .plnext-message > .alert-title,
+  [data-page-device-type="MOBILE"] .plnext-message > .alert-title {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  [data-page-device-type="TABLET"] .form-global-error ul.error,
+  [data-page-device-type="MOBILE"] .form-global-error ul.error {
+    margin-left: 0px;
+  }
+
+  [data-page-device-type="TABLET"] .form-global-error ul.error > li:only-child,
+  [data-page-device-type="MOBILE"] .form-global-error ul.error > li:only-child  {
+     margin-left: -30px;
+  }
+
+  [data-page-device-type="TABLET"] .plnext-message.message-panel-original .content,
+  [data-page-device-type="MOBILE"] .plnext-message.message-panel-original .content {
+    margin-left: 57px;
+  }
+}

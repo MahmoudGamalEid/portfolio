@@ -1,0 +1,247 @@
+
+@media (min-width: 1px) {
+  .container {
+    width: 100%;
+  }
+}
+
+body {
+  /*
+   * IE causes horizontal scroll. This is workaround
+   * We can't assign this parameter to containers
+   * because `position: sticky` doesn't work like that
+   */
+  overflow-x: hidden;
+}
+
+input[type="text"],
+input[type="search"] {
+  width: 100%;
+}
+
+  .plnext-sr-only {
+    position: absolute;
+    clip: rect(0,0,0,0);
+  }
+
+  .plnext-sr-only:not(.plnext-sr-only-page),
+  .plnext-sr-only:not(.btn) {
+    font-size: 1px;
+  }
+
+  .plnext-sr-only.skip-link {
+    background-color: #ffffff;
+    }
+
+  .plnext-sr-only.plnext-sr-only-page.skip-link {
+      -webkit-transition: all 0.4s ;
+		  -moz-transition:    all 0.4s ;
+		  -o-transition:      all 0.4s;
+		  transition:         all 0.4s;
+		  z-index: 2000;
+	    position: fixed;
+	    top:-200px;
+	    left: 40px;
+		}
+
+  .plnext-sr-only.plnext-sr-only-inner-page.skip-link:focus,
+  .plnext-sr-only.plnext-sr-only-page.skip-link:focus {
+      top:60px;
+      clip: inherit;
+      outline: 2px solid #44c7ff;
+  }
+
+  .plnext-sr-only.plnext-sr-only-inner-page.skip-link {
+      -webkit-transition: all 0.4s ;
+      -moz-transition:    all 0.4s ;
+      -o-transition:      all 0.4s;
+      transition:         all 0.4s;
+      z-index: 2000;
+      position: absolute;
+      top: -100px;
+    }
+
+  .plnext-sr-only.plnext-sr-only-page.skip-link:focus {
+      top:60px;
+      clip: inherit;
+      outline: 2px solid #44c7ff;
+  }
+  /************************************************************/
+  /* PAGE LAYOUT **********************************************/
+
+
+
+  .page-custom-content {
+    position: absolute;
+    top: 0;
+    width : 150px;
+
+    -webkit-transition:  width 0.5s;
+    -moz-transition:  width 0.5s;
+    -o-transition:  width 0.5s;
+    transition:  width 0.5s;
+
+  }
+
+@media (max-width: 1399px) {
+     .page-custom-content {
+       display : none;
+    }
+ }
+
+ @media (min-width: 1400px) and (max-width: 1599px) {
+     #left-page-custom-content {
+      left: -150px;
+     }
+
+     #right-page-custom-content {
+       right: -150px;
+     }
+
+  }
+
+  @media (min-width: 1600px) {
+	   #left-page-custom-content {
+	    left: -200px;
+	   }
+
+	   #right-page-custom-content {
+	     right: -200px;
+	   }
+
+	   .page-custom-content {
+	      width : 200px;
+
+    }
+
+  }
+
+	@media (min-width: 1200px) {
+		body .page-template-section,
+    body #page-template-header  .header-component  {
+     width : 1200px !important;
+     margin: auto;
+   }
+
+   body[data-page-device-type="TABLET"] .page-template-section {
+     width : 100%;
+   }
+
+   body[data-page-device-type="TABLET"] #page-template-header  .header-component,
+   body[data-page-device-type="MOBILE"] #page-template-header  .header-component  {
+    width : 100% !important;
+   }
+
+  }
+
+    #page-template-header {
+      width: 100%;
+      margin: 0;
+    }
+
+   #page-template-header  .header-component,
+   #page-container,
+   .layout-center-column {
+     float: none;
+   }
+
+   .container,
+   #page-container {
+     padding: 0px;
+   }
+
+   .container.overflow-visible,
+   #page-container.overflow-visible{
+	   overflow-y: visible;
+	 }
+
+   .layout-body,
+   .layout-middle,
+   #page-container,
+   .layout-center-column {
+     margin : 0;
+     padding : 0;
+   }
+
+  /* Table row */
+  .container > .table-row-display {
+      margin-right: -7.5px;
+      margin-left: -7.5px;
+  }
+
+  .table-row-display {
+      display: table;
+      width: 100%;
+  }
+
+  .table-row-display > div[class^="col-"],
+  .table-row-display > div[class*=" col-"] {
+    display: table-cell;
+    float: none;
+  }
+
+  .not-focusable-by-sr {
+    text-indent: -10000px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+  }
+
+  /** Bootstrap XXS **/
+  .visible-xxs {
+    display: none;
+  }
+
+  @media (min-width: 600px) and (min-width: 767px) {
+    .visible-xxs {
+      display: block !important;
+    }
+
+    table.visible-xxs {
+      display: table;
+    }
+
+    tr.visible-xxs {
+      display: table-row !important;
+    }
+
+    th.visible-xxs,
+    td.visible-xxs {
+      display: table-cell !important;
+    }
+
+    .hidden-xxs {
+      display: none !important;
+    }
+  }
+
+
+   /** Bootstrap XXXS **/
+  .visible-xxxs {
+    display: none;
+  }
+
+  @media (max-width: 599px) {
+    .visible-xxxs {
+      display: block !important;
+    }
+
+    table.visible-xxxs {
+      display: table;
+    }
+
+    tr.visible-xxxs {
+      display: table-row !important;
+    }
+
+    th.visible-xxxs,
+    td.visible-xxxs {
+      display: table-cell !important;
+    }
+
+    .hidden-xxxs {
+      display: none !important;
+    }
+  }
+
+

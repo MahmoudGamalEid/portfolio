@@ -1,0 +1,722 @@
+@font-face {
+  font-family: "Roboto Black";
+  src: url("../resources/fonts/roboto_black/Roboto-Black-webfont.eot");
+  src:  url("../resources/fonts/roboto_black/Roboto-Black-webfont.eot") format('embedded-opentype'),
+        url("../resources/fonts/roboto_black/Roboto-Black-webfont.woff") format("woff"),
+        url("../resources/fonts/roboto_black/Roboto-Black-webfont.ttf") format("truetype"),
+        url("../resources/fonts/roboto_black/Roboto-Black-webfont.svg#robotoblack") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../resources/fonts/roboto_bold/Roboto-Bold-webfont.eot");
+  src:  url("../resources/fonts/roboto_bold/Roboto-Bold-webfont.eot") format('embedded-opentype'),
+        url("../resources/fonts/roboto_bold/Roboto-Bold-webfont.woff") format("woff"),
+        url("../resources/fonts/roboto_bold/Roboto-Bold-webfont.ttf") format("truetype"),
+        url("../resources/fonts/roboto_bold/Roboto-Bold-webfont.svg#robotobold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../resources/fonts/roboto_regular/Roboto-Regular-webfont.eot");
+  src:  url("../resources/fonts/roboto_regular/Roboto-Regular-webfont.eot") format('embedded-opentype'),
+        url("../resources/fonts/roboto_regular/Roboto-Regular-webfont.woff") format("woff"),
+        url("../resources/fonts/roboto_regular/Roboto-Regular-webfont.ttf") format("truetype"),
+        url("../resources/fonts/roboto_regular/Roboto-Regular-webfont.svg#robotoregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Light";
+  src: url("../resources/fonts/roboto_light/Roboto-Light-webfont.eot");
+  src:  url("../resources/fonts/roboto_light/Roboto-Light-webfont.eot") format('embedded-opentype'),
+        url("../resources/fonts/roboto_light/Roboto-Light-webfont.woff") format("woff"),
+        url("../resources/fonts/roboto_light/Roboto-Light-webfont.ttf") format("truetype"),
+        url("../resources/fonts/roboto_light/Roboto-Light-webfont.svg#robotolight") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Thin";
+  src: url("../resources/fonts/roboto_thin/Roboto-Thin-webfont.eot");
+  src:  url("../resources/fonts/roboto_thin/Roboto-Thin-webfont.eot") format('embedded-opentype'),
+        url("../resources/fonts/roboto_thin/Roboto-Thin-webfont.woff") format("woff"),
+        url("../resources/fonts/roboto_thin/Roboto-Thin-webfont.ttf") format("truetype"),
+        url("../resources/fonts/roboto_thin/Roboto-Thin-webfont.svg#robotothin") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'ADC-icons';
+  src:url('../resources/fonts/ADC-icons.eot?-seeiee');
+  src:url('../resources/fonts/ADC-icons.eot?#iefix-seeiee') format('embedded-opentype'),
+    url('../resources/fonts/ADC-icons.woff?-seeiee') format('woff'),
+    url('../resources/fonts/ADC-icons.ttf?-seeiee') format('truetype'),
+    url('../resources/fonts/ADC-icons.svg?-seeiee#ADC-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NewUI-icons';
+  src:url('../resources/fonts/NewUI-icons.eot?-o9cum6');
+  src:url('../resources/fonts/NewUI-icons.eot?#iefix-o9cum6') format('embedded-opentype'),
+    url('../resources/fonts/NewUI-icons.woff?-o9cum6') format('woff'),
+    url('../resources/fonts/NewUI-icons.ttf?-o9cum6') format('truetype'),
+    url('../resources/fonts/NewUI-icons.svg?-o9cum6#NewUI-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'NewUI-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mcp:before {
+  content: "\e91b";
+}
+.icon-seat-discount:before {
+  content: "\e918";
+}
+.icon-reverse:before {
+  content: "\e919";
+}
+.icon-chevron-right:before {
+  content: "\e90c";
+}
+.icon-chevron-left:before {
+  content: "\e90d";
+}
+.icon-chevron-down:before {
+  content: "\e90e";
+}
+.icon-chevron-up:before {
+  content: "\e90f";
+}
+.icon-train:before {
+  content: "\e90b";
+}
+.icon-bars:before {
+  content: "\e909";
+}
+.icon-hotfood:before {
+  content: "\e907";
+}
+.icon-coffee:before {
+  content: "\e908";
+}
+.icon-film:before {
+  content: "\e900";
+}
+.icon-tv:before {
+  content: "\e901";
+}
+.icon-power-cord:before {
+  content: "\e905";
+}
+.icon-wifi:before {
+  content: "\e906";
+}
+.icon-screenshot:before {
+  content: "\e902";
+}
+.icon-undo:before {
+  content: "\e903";
+}
+.icon-repeat:before {
+  content: "\e904";
+}
+.icon-glass:before {
+  content: "\e800";
+}
+.icon-leave:before {
+  content: "\e625";
+}
+.icon-banners:before {
+  content: "\e626";
+}
+.icon-clone:before {
+  content: "\e627";
+}
+.icon-discount:before {
+  content: "\e628";
+}
+.icon-gaugeverticalpointer:before {
+  content: "\e62a";
+}
+.icon-listmode:before {
+  content: "\e62b";
+}
+.icon-mailing:before {
+  content: "\e62c";
+}
+.icon-matrixmode:before {
+  content: "\e62d";
+}
+.icon-seedetails:before {
+  content: "\e62e";
+}
+.icon-air-conditioning:before {
+  content: "\e61c";
+}
+.icon-bed:before {
+  content: "\e61d";
+}
+.icon-car-door:before {
+  content: "\e61e";
+}
+.icon-fuel:before {
+  content: "\e61f";
+}
+.icon-gearbox:before {
+  content: "\e620";
+}
+.icon-map-marker-1:before {
+  content: "\e621";
+}
+.icon-map-marker-2:before {
+  content: "\e622";
+}
+.icon-speedometer:before {
+  content: "\e623";
+}
+.icon-seatmap-facility-wheelchair:before {
+  content: "\e609";
+}
+.icon-seatmap-facility-toilet:before {
+  content: "\e60a";
+}
+.icon-seatmap-facility-galley:before {
+  content: "\e60b";
+}
+.icon-seatmap-exit-left:before {
+  content: "\e60e";
+}
+.icon-seatmap-exit-right:before {
+  content: "\e60f";
+}
+.icon-seat-unavailable:before {
+  content: "\e610";
+}
+.icon-seat-selected-num:before {
+  content: "\e611";
+}
+.icon-seat-selected-alone:before {
+  content: "\e613";
+}
+.icon-seat-chargeable:before {
+  content: "\e614";
+}
+.icon-seat-chargeable-rollover .path1:before {
+  content: "\e617";
+  color: rgb(0, 0, 0);
+}
+.icon-seat-chargeable-rollover .path2:before {
+  content: "\e618";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-seat-rollover:before {
+  content: "\e619";
+}
+.icon-seat-group-unavailable:before {
+  content: "\e910";
+}
+.icon-seat-group-available:before {
+  content: "\e911";
+}
+.icon-seat-available:before {
+  content: "\e61a";
+}
+.icon-seat-soldout:before {
+  content: "\e91a";
+}
+.icon-asterisk:before {
+  content: "\e615";
+}
+.icon-pushpin:before {
+  content: "\e616";
+}
+.icon-internal-link:before {
+  content: "\e60c";
+}
+.icon-select:before {
+  content: "\e605";
+}
+.icon-menu:before {
+  content: "\e021";
+}
+.icon-menulist:before {
+  content: "\e018";
+}
+.icon-play:before {
+  content: "\f04b";
+}
+.icon-plus:before {
+  content: "\f067";
+}
+.icon-minus:before {
+  content: "\f068";
+}
+.icon-ok:before {
+  content: "\f00c";
+}
+.icon-remove:before {
+  content: "\f00d";
+}
+.icon-trash:before {
+  content: "\f014";
+}
+.icon-plus-sign:before {
+  content: "\f055";
+}
+.icon-minus-sign:before {
+  content: "\f056";
+}
+.icon-remove-sign:before {
+  content: "\f057";
+}
+.icon-ok-sign:before {
+  content: "\f058";
+}
+.icon-question-sign:before {
+  content: "\f059";
+}
+.icon-info-sign:before {
+  content: "\f05a";
+}
+.icon-exclamation-sign:before {
+  content: "\f06a";
+}
+.icon-warning-sign:before {
+  content: "\f071";
+}
+.icon-download:before {
+  content: "\f01a";
+}
+.icon-upload:before {
+  content: "\f01b";
+}
+.icon-circle-arrow-left:before {
+  content: "\f0a8";
+}
+.icon-circle-arrow-right:before {
+  content: "\f0a9";
+}
+.icon-circle-arrow-up:before {
+  content: "\f0aa";
+}
+.icon-circle-arrow-down:before {
+  content: "\f0ab";
+}
+.icon-refresh:before {
+  content: "\f021";
+}
+.icon-reset:before {
+  content: "\e608";
+}
+.icon-arrow-left:before {
+  content: "\f060";
+}
+.icon-arrow-right:before {
+  content: "\f061";
+}
+.icon-arrow-up:before {
+  content: "\f062";
+}
+.icon-arrow-down:before {
+  content: "\f063";
+}
+.icon-filter:before {
+  content: "\f0b0";
+}
+.icon-caret-down:before {
+  content: "\f0d7";
+}
+.icon-caret-up:before {
+  content: "\f0d8";
+}
+.icon-caret-left:before {
+  content: "\f0d9";
+}
+.icon-caret-right:before {
+  content: "\f0da";
+}
+.icon-sort:before {
+  content: "\f0dc";
+}
+.icon-sort-up:before {
+  content: "\f0de";
+}
+.icon-sort-down:before {
+  content: "\f0dd";
+}
+.icon-external-link:before {
+  content: "\f08e";
+}
+.icon-signin:before {
+  content: "\f090";
+}
+.icon-check:before {
+  content: "\f046";
+}
+.icon-check-empty:before {
+  content: "\f096";
+}
+.icon-edit:before {
+  content: "\f044";
+}
+.icon-circle-empty:before {
+  content: "\e914";
+}
+.icon-circle:before {
+  content: "\e604";
+}
+.icon-save:before {
+  content: "\f0c7";
+}
+.icon-file:before {
+  content: "\f016";
+}
+.icon-print:before {
+  content: "\f02f";
+}
+.icon-envelope:before {
+  content: "\f003";
+}
+.icon-email:before {
+  content: "\e629";
+}
+.icon-home:before {
+  content: "\f015";
+}
+.icon-off:before {
+  content: "\f011";
+}
+.icon-lock-ok:before {
+  content: "\e61b";
+}
+.icon-lock:before {
+  content: "\f023";
+}
+.icon-cog:before {
+  content: "\f013";
+}
+.icon-cart:before {
+  content: "\e008";
+}
+.icon-barcode:before {
+  content: "\e01d";
+}
+.icon-ticket:before {
+  content: "\e030";
+}
+.icon-service:before {
+  content: "\e03c";
+}
+.icon-car:before {
+  content: "\e03b";
+}
+.icon-office:before {
+  content: "\e004";
+}
+.icon-web:before {
+  content: "\e01b";
+}
+.icon-earth:before {
+  content: "\e01c";
+}
+.icon-person:before {
+  content: "\e90a";
+}
+.icon-heart-empty:before {
+  content: "\f08a";
+}
+.icon-gift:before {
+  content: "\f06b";
+}
+.icon-aid:before {
+  content: "\e003";
+}
+.icon-star:before {
+  content: "\e62f";
+}
+.icon-certificate:before {
+  content: "\f0a3";
+}
+.icon-picture:before {
+  content: "\f03e";
+}
+.icon-tags:before {
+  content: "\f02c";
+}
+.icon-search:before {
+  content: "\f002";
+}
+.icon-plane-right:before {
+  content: "\f074";
+}
+.icon-plane:before {
+  content: "\f072";
+}
+.icon-plane-left:before {
+  content: "\f075";
+}
+.icon-plane-return:before {
+  content: "\f07f";
+}
+.icon-landing:before {
+  content: "\e024";
+}
+.icon-takeoff:before {
+  content: "\e025";
+}
+.icon-calendar:before {
+  content: "\f073";
+}
+.icon-origin-left:before {
+  content: "\e029";
+}
+.icon-origin-right:before {
+  content: "\e035";
+}
+.icon-origin:before {
+  content: "\e02a";
+}
+.icon-destination:before {
+  content: "\e028";
+}
+.icon-destination2:before {
+  content: "\e03d";
+}
+.icon-destination-right:before {
+  content: "\e03e";
+}
+.icon-map-marker:before {
+  content: "\f041";
+}
+.icon-time:before {
+  content: "\f017";
+}
+.icon-stopwatch:before {
+  content: "\e007";
+}
+.icon-stop-alt:before {
+  content: "\e031";
+}
+.icon-lowest:before {
+  content: "\f031";
+}
+.icon-comment-alt:before {
+  content: "\f0e5";
+}
+.icon-comments-alt:before {
+  content: "\f0e6";
+}
+.icon-rss:before {
+  content: "\f09e";
+}
+.icon-google-plus-sign:before {
+  content: "\f0d4";
+}
+.icon-github-sign:before {
+  content: "\f092";
+}
+.icon-linkedin-sign:before {
+  content: "\f08c";
+}
+.icon-twitter-sign:before {
+  content: "\f081";
+}
+.icon-facebook-sign:before {
+  content: "\f082";
+}
+.icon-paypal:before {
+  content: "\e00a";
+}
+.icon-android:before {
+  content: "\e019";
+}
+.icon-cloud:before {
+  content: "\f0c2";
+}
+.icon-apple:before {
+  content: "\e01a";
+}
+.icon-phone-sign:before {
+  content: "\f098";
+}
+.icon-desktop:before {
+  content: "\f108";
+}
+.icon-laptop:before {
+  content: "\f109";
+}
+.icon-tablet:before {
+  content: "\f10a";
+}
+.icon-mobile:before {
+  content: "\f10b";
+}
+.icon-credit:before {
+  content: "\f09d";
+}
+.icon-debit:before {
+  content: "\e00b";
+}
+.icon-ban-circle:before {
+  content: "\e624";
+}
+.icon-no_seat:before {
+  content: "\e60d";
+}
+.icon-nofood:before {
+  content: "\e02d";
+}
+.icon-refund:before {
+  content: "\e02e";
+}
+.icon-nofees:before {
+  content: "\e02f";
+}
+.icon-coin-dollar:before {
+  content: "\e801";
+}
+.icon-coin:before {
+  content: "\e009";
+}
+.icon-baggage:before {
+  content: "\e033";
+}
+.icon-luggage:before {
+  content: "\e017";
+}
+.icon-briefcase:before {
+  content: "\e606";
+}
+.icon-meal:before {
+  content: "\f0f6";
+}
+.icon-food:before {
+  content: "\f0f5";
+}
+.icon-lounge:before {
+  content: "\e02c";
+}
+.icon-miles:before {
+  content: "\e607";
+}
+.icon-bassinet:before {
+  content: "\e612";
+}
+.icon-handicap:before {
+  content: "\e600";
+}
+.icon-seat:before {
+  content: "\e01f";
+}
+.icon-seat-business:before {
+  content: "\e02b";
+}
+.icon-seat-first:before {
+  content: "\e032";
+}
+.icon-ADT:before,
+.icon-adult:before {
+  content: "\e036";
+}
+.icon-YTH:before,
+.icon-youth:before {
+  content: "\e03a";
+}
+.icon-CHD:before,
+.icon-child:before {
+  content: "\e001";
+}
+.icon-adult-child:before {
+  content: "\e917";
+}
+.icon-INF:before,
+.icon-infant:before {
+  content: "\e002";
+}
+.icon-adult-infant:before {
+  content: "\e00d";
+}
+.icon-woman:before {
+  content: "\e000";
+}
+.icon-family:before {
+  content: "\e00e";
+}
+.icon-traveler:before {
+  content: "\e00c";
+}
+.icon-screen:before {
+  content: "\e034";
+}
+.icon-bike:before {
+  content: "\e022";
+}
+.icon-ski:before {
+  content: "\e037";
+}
+.icon-golf:before {
+  content: "\e039";
+}
+.icon-windsurf:before {
+  content: "\e038";
+}
+.icon-sun:before {
+  content: "\e011";
+}
+.icon-moon:before {
+  content: "\e602";
+}
+.icon-night:before {
+  content: "\e603";
+}
+.icon-morning:before {
+  content: "\e601";
+}
+.icon-waiver:before {
+  content: "\e616";
+}
+.icon-close:before {
+  content: "\f00d";
+}
+
+/*
+ * The default icon for all the traveller
+ * types is the one used for adult traveller
+ */
+.icon-YCD:before, .icon-CMP:before,
+.icon-STU:before, .icon-GVT:before,
+.icon-MIL:before, .icon-YTH:before,
+.icon-HOF:before, .icon-CMA:before,
+.icon-B15:before,
+.icon-senior:before, .icon-companion:before,
+.icon-student:before, .icon-governement:before,
+.icon-military:before, .icon-youth:before,
+.icon-headOfFamily:before, .icon-adultWithCompanion:before,
+.icon-youngAdult:before
+{
+  content: "\e036";
+}
+.icon-SPS:before,
+.icon-spouse:before {
+  content: "\e000";
+}
