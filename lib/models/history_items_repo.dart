@@ -3,7 +3,7 @@ import 'package:tuple/tuple.dart';
 
 class HistoryItemsRepo {
   static const allHistoryItems = <History>[
-    History(companyLogoPath: "/Leltk_Logo.jpg",
+    History(companyLogoPath: "/Leltk_Logo.png",
         companyName: "Leltk",
         date: "Feb 2020 - May 2021", role: "Role\n"
             "\nAt this Company I was responsible for desiging products after meeting with clients"
