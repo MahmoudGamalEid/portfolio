@@ -54,7 +54,6 @@ $RECYCLE.BIN/
 *.cab
 *.class
 *.ctxt
-*.dart.js
 *.deb
 *.dex
 *.dmg
@@ -74,7 +73,6 @@ $RECYCLE.BIN/
 *.iso
 *.iws
 *.jar
-*.js
 *.js.deps
 *.js.map
 *.js_
