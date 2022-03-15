@@ -108,15 +108,15 @@ class _HistoryItemState extends State<HistoryItem> {
         widget.history.date,
         textStyle:  NeumorphicTextStyle(
             fontWeight: FontWeight.w900, fontSize: 20),
-          style: const NeumorphicStyle(
-          color: NeumorphicColors.defaultTextColor,
+          style:  NeumorphicStyle(
+          color: NeumorphicTheme.currentTheme(context).defaultTextColor,
           depth: 2,
-          intensity: 0.86,
+          intensity: 0.5,
           surfaceIntensity: 0.5),
       ),
     );
     Widget skills = Neumorphic(
-      style: const NeumorphicStyle(depth: -2),
+      style: const NeumorphicStyle(depth: -5,intensity: 0.5),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -231,7 +231,7 @@ class _HistoryItemState extends State<HistoryItem> {
                         Expanded(
                           flex: 4,
                           child: Neumorphic(
-                            style: const NeumorphicStyle(depth: -2),
+                            style: const NeumorphicStyle(depth: -5,intensity: 0.5),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
@@ -250,29 +250,33 @@ class _HistoryItemState extends State<HistoryItem> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1000),
-                    child: NeumorphicToggle(
-                        onChanged: (value) {
-                          setState(() {
-                            _selectedIndex = value;
-                          });
-                        },
-                        height: 50,
-                        selectedIndex: _selectedIndex,
-                        displayForegroundOnlyIfSelected: true,
-                        thumb: Neumorphic(
-                          style: NeumorphicStyle(
-                              boxShape: NeumorphicBoxShape.roundRect(
-                                  const BorderRadius.all(Radius.circular(12)))),
-                        ),
-                        children: projectNames),
-                  ),
-                  const SizedBox(height: 8),
-                  ConstrainedBox(
+                  Padding(
+                    padding: const EdgeInsets.only(top:16.0),
+                    child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1000),
-                      child: projectDescriptions.elementAt(_selectedIndex))
+                      child: NeumorphicToggle(
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedIndex = value;
+                            });
+                          },
+                          height: 50,
+                          selectedIndex: _selectedIndex,
+                          displayForegroundOnlyIfSelected: true,
+                          thumb: Neumorphic(
+                            style: NeumorphicStyle(
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    const BorderRadius.all(Radius.circular(12)))),
+                          ),
+                          children: projectNames),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:16.0),
+                    child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 1000),
+                        child: projectDescriptions.elementAt(_selectedIndex)),
+                  )
                 ],
               ),
             ),

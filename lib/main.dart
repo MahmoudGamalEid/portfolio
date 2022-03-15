@@ -13,16 +13,21 @@ class MyApp extends StatelessWidget {
     return const NeumorphicApp(
       debugShowCheckedModeBanner: false,
       title: 'Mahmoud Eid',
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: NeumorphicThemeData(
         baseColor: NeumorphicColors.background,
         lightSource: LightSource.topLeft,
+        defaultTextColor: NeumorphicColors.defaultTextColor,
         depth: 5,
+        iconTheme: IconThemeData(color: Colors.black)
       ),
       darkTheme: NeumorphicThemeData(
         baseColor: NeumorphicColors.darkBackground,
         lightSource: LightSource.topLeft,
-        depth: 1,
+        defaultTextColor: NeumorphicColors.darkDefaultTextColor,
+        iconTheme: IconThemeData(color: Colors.white),
+        depth: 5,
+        intensity: 0.4
       ),
       home: MyHomePage(),
     );

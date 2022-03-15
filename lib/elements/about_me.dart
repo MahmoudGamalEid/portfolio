@@ -19,7 +19,7 @@ class _AboutMeState extends State<AboutMe> {
 
   final String email =
       "mailto:mahmoudgamaleid@gmail.com?subject=Professional Opportunity&body=Hello Mahmoud,\n";
-  String  _details= "Hello";
+  String _details = "Hello";
   bool _showDetails = false;
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,9 @@ class _AboutMeState extends State<AboutMe> {
           fontWeight: FontWeight.bold,
           fontSize: 20,
         ),
-        style: const NeumorphicStyle(
-            color: NeumorphicColors.defaultTextColor,
-            depth: 2,
-            intensity: 0.86,
+        style: NeumorphicStyle(
+            color: NeumorphicTheme.currentTheme(context).defaultTextColor,
+            intensity: 0.5,
             surfaceIntensity: 0.5),
       ),
       NeumorphicText(
@@ -42,10 +41,9 @@ class _AboutMeState extends State<AboutMe> {
           fontWeight: FontWeight.bold,
           fontSize: 35,
         ),
-        style: const NeumorphicStyle(
-            color: NeumorphicColors.defaultTextColor,
-            depth: 2,
-            intensity: 0.86,
+        style: NeumorphicStyle(
+            color: NeumorphicTheme.currentTheme(context).defaultTextColor,
+            intensity: 0.5,
             surfaceIntensity: 0.5),
       ),
       FittedBox(
@@ -55,10 +53,10 @@ class _AboutMeState extends State<AboutMe> {
             fontWeight: FontWeight.bold,
             fontSize: 25,
           ),
-          style: const NeumorphicStyle(
-              color: NeumorphicColors.defaultTextColor,
-              depth: 2,
-              intensity: 0.86,
+          style: NeumorphicStyle(
+              color: NeumorphicTheme.currentTheme(context).defaultTextColor,
+              lightSource: LightSource.topLeft,
+              intensity: 0.5,
               surfaceIntensity: 0.5),
         ),
       ),
@@ -77,12 +75,12 @@ class _AboutMeState extends State<AboutMe> {
                   child: NeumorphicButton(
                     child: const FittedBox(child: Icon(Icons.phone)),
                     onPressed: () async {
-                      if(MediaQuery.of(context).size.width<=425){
+                      if (MediaQuery.of(context).size.width <= 425) {
                         await launch(phoneNUmber);
                       }
                       setState(() {
                         _showDetails = true;
-                       _details =  phoneNUmber.split(":")[1];
+                        _details = phoneNUmber.split(":")[1];
                       });
                     },
                     style: const NeumorphicStyle(
@@ -146,11 +144,7 @@ class _AboutMeState extends State<AboutMe> {
           ),
         ),
       ),
-      Visibility(
-          visible: _showDetails,
-          child: SelectableText(
-           _details
-          )),
+      Visibility(visible: _showDetails, child: SelectableText(_details)),
     ]);
   }
 }
