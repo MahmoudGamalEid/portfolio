@@ -8,7 +8,6 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const NeumorphicApp(
@@ -16,14 +15,14 @@ class MyApp extends StatelessWidget {
       title: 'Mahmoud Eid',
       themeMode: ThemeMode.light,
       theme: NeumorphicThemeData(
-        baseColor: Color.fromRGBO(238, 245, 251, 1),
-        lightSource: LightSource.top,
-        depth: 2,
+        baseColor: NeumorphicColors.background,
+        lightSource: LightSource.topLeft,
+        depth: 5,
       ),
       darkTheme: NeumorphicThemeData(
-        baseColor: Color(0xFF3E3E3E),
-        lightSource: LightSource.bottomRight,
-        depth: 2,
+        baseColor: NeumorphicColors.darkBackground,
+        lightSource: LightSource.topLeft,
+        depth: 1,
       ),
       home: MyHomePage(),
     );
@@ -62,22 +61,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-
-  Color? _iconsColor(BuildContext context) {
-    final theme = NeumorphicTheme.of(context);
-    if (theme!.isUsingDark) {
-      return theme.current!.accentColor;
-    } else {
-      return null;
-    }
-  }
-
-  Color _textColor(BuildContext context) {
-    if (NeumorphicTheme.isUsingDark(context)) {
-      return Colors.white;
-    } else {
-      return Colors.black;
-    }
   }
 }

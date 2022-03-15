@@ -8,12 +8,14 @@ class HistoryItemsRepo {
         companyName: "Leltk",
         date: "May 2021 - now",
         role: "Role"
-            "",
+            "\nDesign Features of the both client and partner apps"
+            "\nDesign Architecture of both backend and frontend components"
+            "\nImplement the designed features on Flutter and Firebase"
+            "\nPitch the application to possible Leltk partners",
         skills: [
           Tuple2("Flutter", 0.8),
           Tuple2("Firebase", 0.3),
           Tuple2("Business Development", 0.2),
-          Tuple2("Project Management", 0.1)
         ],
         projects: {
           "Leltk Customer App": Tuple2(
@@ -42,7 +44,6 @@ class HistoryItemsRepo {
           Tuple2("Project Management", 0.5),
           Tuple2("Business Development", 0.3),
           Tuple2("Python", 0.2),
-          Tuple2("C#", 0.1)
         ],
         projects: {
           "Ministry of Education Certificates": Tuple2(
@@ -77,8 +78,6 @@ class HistoryItemsRepo {
         skills: [
           Tuple2("Project Management", 0.5),
           Tuple2("Business Development", 0.3),
-          Tuple2("Python", 0.2),
-          Tuple2("C#", 0.1)
         ],
         projects: {
           "Track and Trace system": Tuple2(

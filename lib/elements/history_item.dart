@@ -104,10 +104,15 @@ class _HistoryItemState extends State<HistoryItem> {
     List<ToggleElement> projectNames = createToggleElements();
     List<Widget> projectDescriptions = createProjectDescriptions();
     Widget date = FittedBox(
-      child: Text(
+      child: NeumorphicText(
         widget.history.date,
-        style: const TextStyle(
+        textStyle:  NeumorphicTextStyle(
             fontWeight: FontWeight.w900, fontSize: 20),
+          style: const NeumorphicStyle(
+          color: NeumorphicColors.defaultTextColor,
+          depth: 2,
+          intensity: 0.86,
+          surfaceIntensity: 0.5),
       ),
     );
     Widget skills = Neumorphic(
@@ -142,30 +147,31 @@ class _HistoryItemState extends State<HistoryItem> {
         children: <Widget>[
           Visibility(
             visible: !_isMobile,
-            child: Flexible(
-              flex: 1,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(
-                        maxWidth: 200,
-                        maxHeight: 200,
-                        minHeight: 50,
-                        minWidth: 50),
-                    child: Neumorphic(
-                      style: const NeumorphicStyle(
-                          depth: 2, intensity: 0.86, surfaceIntensity: 0.5),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Flexible(
+                flex: 1,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                          maxWidth: 200,
+                          maxHeight: 200,
+                          minHeight: 50,
+                          minWidth: 50),
+                      child: Neumorphic(
                         child: Image.asset(
                           widget.history.companyLogoPath,
                         ),
                       ),
                     ),
-                  ),
-                  date,
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(top:16.0),
+                      child: date,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

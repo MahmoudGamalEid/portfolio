@@ -1,9 +1,26 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class AboutMe extends StatelessWidget {
+class AboutMe extends StatefulWidget {
   const AboutMe({Key? key}) : super(key: key);
 
+  @override
+  State<AboutMe> createState() => _AboutMeState();
+}
+
+class _AboutMeState extends State<AboutMe> {
+  final String linkedInUrl =
+      "https://www.linkedin.com/in/mahmoud-gamal-a0067592/";
+
+  final String phoneNUmber = "tel:+201117475548";
+
+  final String location = "Cairo, Egypt";
+
+  final String email =
+      "mailto:mahmoudgamaleid@gmail.com?subject=Professional Opportunity&body=Hello Mahmoud,\n";
+  String  _details= "Hello";
+  bool _showDetails = false;
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -54,11 +71,19 @@ class AboutMe extends StatelessWidget {
             children: [
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.only(left:8,),
+                  padding: const EdgeInsets.only(
+                    left: 8,
+                  ),
                   child: NeumorphicButton(
                     child: const FittedBox(child: Icon(Icons.phone)),
-                    onPressed: () {
-                      print('phone');
+                    onPressed: () async {
+                      if(MediaQuery.of(context).size.width<=425){
+                        await launch(phoneNUmber);
+                      }
+                      setState(() {
+                        _showDetails = true;
+                       _details =  phoneNUmber.split(":")[1];
+                      });
                     },
                     style: const NeumorphicStyle(
                         shape: NeumorphicShape.flat,
@@ -72,8 +97,8 @@ class AboutMe extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: NeumorphicButton(
                     child: const FittedBox(child: Icon(Icons.mail)),
-                    onPressed: () {
-                      print('mail');
+                    onPressed: () async {
+                      await launch(email);
                     },
                     style: const NeumorphicStyle(
                         shape: NeumorphicShape.flat,
@@ -89,7 +114,10 @@ class AboutMe extends StatelessWidget {
                     child:
                         const FittedBox(child: Icon(Icons.location_on_rounded)),
                     onPressed: () {
-                      print('location');
+                      setState(() {
+                        _showDetails = true;
+                        _details = location;
+                      });
                     },
                     style: const NeumorphicStyle(
                         shape: NeumorphicShape.flat,
@@ -100,12 +128,12 @@ class AboutMe extends StatelessWidget {
               ),
               Flexible(
                 child: Padding(
-                  padding:const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.only(left: 8.0),
                   child: NeumorphicButton(
                     child: const FittedBox(
                         child: Icon(FontAwesomeIcons.linkedinIn)),
-                    onPressed: () {
-                      print('linkedIn');
+                    onPressed: () async {
+                      await launch(linkedInUrl);
                     },
                     style: const NeumorphicStyle(
                         shape: NeumorphicShape.flat,
@@ -117,7 +145,12 @@ class AboutMe extends StatelessWidget {
             ],
           ),
         ),
-      )
+      ),
+      Visibility(
+          visible: _showDetails,
+          child: SelectableText(
+           _details
+          )),
     ]);
   }
 }
