@@ -19,15 +19,21 @@ class _HistoryItemState extends State<HistoryItem> {
     widget.history.projects.forEach((key, value) {
       elements.add(ToggleElement(
         background: Center(
-            child: Text(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
           key,
           style: const TextStyle(fontWeight: FontWeight.w500),
-        )),
+        ),
+            )),
         foreground: Center(
-            child: Text(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
           key,
           style: const TextStyle(fontWeight: FontWeight.w700),
-        )),
+        ),
+            )),
       ));
     });
     return elements;
@@ -37,9 +43,11 @@ class _HistoryItemState extends State<HistoryItem> {
     List<Widget> projects = [];
 
     widget.history.projects.forEach((key, value) {
-
-      Text _shortText = Text(value.item1);
-      Text _longText = Text(value.item2);
+      Text _shortText = Text(
+        value.item1,
+        style: const TextStyle(height: 1.25),
+      );
+      Text _longText = Text(value.item2, style: const TextStyle(height: 1.25));
       projects.add(Neumorphic(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -52,15 +60,18 @@ class _HistoryItemState extends State<HistoryItem> {
                     padding: EdgeInsets.only(right: 8),
                     child: Text("Details"),
                   ),
-                  NeumorphicSwitch(
-                    height: 25,
-                    value: _longVersion,
-                    isEnabled: true,
-                    onChanged: (value) {
-                      setState(() {
-                        _longVersion = value;
-                      });
-                    },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: NeumorphicSwitch(
+                      height: 25,
+                      value: _longVersion,
+                      isEnabled: true,
+                      onChanged: (value) {
+                        setState(() {
+                          _longVersion = value;
+                        });
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -88,25 +99,26 @@ class _HistoryItemState extends State<HistoryItem> {
               children: [
                 ConstrainedBox(
                   constraints: const BoxConstraints(
-                    maxWidth: 200,
-                    maxHeight: 200,
-                    minHeight: 50,
-                    minWidth: 50
-                  ),
+                      maxWidth: 200,
+                      maxHeight: 200,
+                      minHeight: 50,
+                      minWidth: 50),
                   child: Neumorphic(
                     style: const NeumorphicStyle(
                         depth: 2, intensity: 0.86, surfaceIntensity: 0.5),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(widget.history.companyLogoPath,),
+                      child: Image.asset(
+                        widget.history.companyLogoPath,
+                      ),
                     ),
                   ),
                 ),
                 FittedBox(
                   child: Text(
                     widget.history.date,
-                    style:
-                        const TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w900, fontSize: 20),
                   ),
                 )
               ],
@@ -139,16 +151,14 @@ class _HistoryItemState extends State<HistoryItem> {
                   ),
                   const SizedBox(height: 8),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      maxWidth: 1000
-                    ),
+                    constraints: const BoxConstraints(maxWidth: 1000),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          flex:1,
+                          flex: 1,
                           child: Neumorphic(
                             style: const NeumorphicStyle(depth: -2),
                             child: Padding(
@@ -158,7 +168,8 @@ class _HistoryItemState extends State<HistoryItem> {
                                 children: [
                                   const Align(
                                       alignment: Alignment.topLeft,
-                                      child: FittedBox(child: Text("Skills utilized"))),
+                                      child: FittedBox(
+                                          child: Text("Skills utilized"))),
                                   ListView.builder(
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
@@ -177,7 +188,7 @@ class _HistoryItemState extends State<HistoryItem> {
                         ),
                         const SizedBox(width: 8),
                         Expanded(
-                          flex:4,
+                          flex: 4,
                           child: Neumorphic(
                             style: const NeumorphicStyle(depth: -2),
                             child: Padding(
@@ -185,7 +196,12 @@ class _HistoryItemState extends State<HistoryItem> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
-                                children: [Text(widget.history.role)],
+                                children: [
+                                  Text(
+                                    widget.history.role,
+                                    style: const TextStyle(height: 1.25),
+                                  )
+                                ],
                               ),
                             ),
                           ),
@@ -195,9 +211,7 @@ class _HistoryItemState extends State<HistoryItem> {
                   ),
                   const SizedBox(height: 8),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      maxWidth: 1000
-                    ),
+                    constraints: const BoxConstraints(maxWidth: 1000),
                     child: NeumorphicToggle(
                         onChanged: (value) {
                           setState(() {
@@ -216,7 +230,7 @@ class _HistoryItemState extends State<HistoryItem> {
                   ),
                   const SizedBox(height: 8),
                   ConstrainedBox(
-                      constraints:const BoxConstraints(maxWidth: 1000),
+                      constraints: const BoxConstraints(maxWidth: 1000),
                       child: projectDescriptions.elementAt(_selectedIndex))
                 ],
               ),

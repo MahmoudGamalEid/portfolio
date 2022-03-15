@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const NeumorphicApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Mahmoud Eid',
       themeMode: ThemeMode.light,
       theme: NeumorphicThemeData(
         baseColor: Color.fromRGBO(238, 245, 251, 1),
@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
               children: [
-            AboutMe(),
+            const AboutMe(),
             ListView.builder(
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
