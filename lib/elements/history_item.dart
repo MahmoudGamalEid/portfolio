@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:portfolio_site/elements/skill_item.dart';
 import 'package:portfolio_site/models/history.dart';
@@ -18,22 +19,36 @@ class _HistoryItemState extends State<HistoryItem> {
     List<ToggleElement> elements = [];
     widget.history.projects.forEach((key, value) {
       elements.add(ToggleElement(
-        background: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-          key,
-          style: const TextStyle(fontWeight: FontWeight.w500),
+        background: SizedBox(
+          width: 200,
+          height: 100,
+          child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AutoSizeText(
+            key,
+            minFontSize: 8,
+            maxFontSize: 12,
+            maxLines: 2,
+            style: const TextStyle(fontWeight: FontWeight.w500),
+          ),
+              )),
         ),
-            )),
-        foreground: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-          key,
-          style: const TextStyle(fontWeight: FontWeight.w700),
+        foreground: SizedBox(
+          width: 100,
+          height: 100,
+          child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AutoSizeText(
+            key,
+            minFontSize: 8,
+            maxFontSize: 12,
+            maxLines: 2,
+            style: const TextStyle(fontWeight: FontWeight.w700),
+          ),
+              )),
         ),
-            )),
       ));
     });
     return elements;
@@ -41,7 +56,6 @@ class _HistoryItemState extends State<HistoryItem> {
 
   List<Widget> createProjectDescriptions() {
     List<Widget> projects = [];
-
     widget.history.projects.forEach((key, value) {
       Text _shortText = Text(
         value.item1,
@@ -86,42 +100,73 @@ class _HistoryItemState extends State<HistoryItem> {
 
   @override
   Widget build(BuildContext context) {
+    bool _isMobile = MediaQuery.of(context).size.width <=425;
     List<ToggleElement> projectNames = createToggleElements();
     List<Widget> projectDescriptions = createProjectDescriptions();
+    Widget date = FittedBox(
+      child: Text(
+        widget.history.date,
+        style: const TextStyle(
+            fontWeight: FontWeight.w900, fontSize: 20),
+      ),
+    );
+    Widget skills = Neumorphic(
+      style: const NeumorphicStyle(depth: -2),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Align(
+                alignment: Alignment.topLeft,
+                child: FittedBox(
+                    child: Text("Skills utilized"))),
+            ListView.builder(
+              physics:const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder:
+                  (BuildContext context, int index) {
+                return SkillItem(
+                  skill: widget.history.skills[index],
+                );
+              },
+              itemCount: widget.history.skills.length,
+            )
+          ],
+        ),
+      ),
+    );
     return Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Flexible(
-            flex: 1,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ConstrainedBox(
-                  constraints: const BoxConstraints(
-                      maxWidth: 200,
-                      maxHeight: 200,
-                      minHeight: 50,
-                      minWidth: 50),
-                  child: Neumorphic(
-                    style: const NeumorphicStyle(
-                        depth: 2, intensity: 0.86, surfaceIntensity: 0.5),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        widget.history.companyLogoPath,
+          Visibility(
+            visible: !_isMobile,
+            child: Flexible(
+              flex: 1,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(
+                        maxWidth: 200,
+                        maxHeight: 200,
+                        minHeight: 50,
+                        minWidth: 50),
+                    child: Neumorphic(
+                      style: const NeumorphicStyle(
+                          depth: 2, intensity: 0.86, surfaceIntensity: 0.5),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          widget.history.companyLogoPath,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                FittedBox(
-                  child: Text(
-                    widget.history.date,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w900, fontSize: 20),
-                  ),
-                )
-              ],
+                  date,
+                ],
+              ),
             ),
           ),
           Flexible(
@@ -150,6 +195,18 @@ class _HistoryItemState extends State<HistoryItem> {
                     ),
                   ),
                   const SizedBox(height: 8),
+                  Visibility(
+                    visible: _isMobile,
+                    child: date
+                  ),
+                  const SizedBox(height: 8),
+                  Visibility(
+                    visible: _isMobile,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: skills,
+                    )
+                  ),
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 1000),
                     child: Row(
@@ -157,33 +214,11 @@ class _HistoryItemState extends State<HistoryItem> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          flex: 1,
-                          child: Neumorphic(
-                            style: const NeumorphicStyle(depth: -2),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Align(
-                                      alignment: Alignment.topLeft,
-                                      child: FittedBox(
-                                          child: Text("Skills utilized"))),
-                                  ListView.builder(
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return SkillItem(
-                                        skill: widget.history.skills[index],
-                                      );
-                                    },
-                                    itemCount: widget.history.skills.length,
-                                  )
-                                ],
-                              ),
-                            ),
+                        Visibility(
+                          visible: !_isMobile,
+                          child: Expanded(
+                            flex: 1,
+                            child: skills
                           ),
                         ),
                         const SizedBox(width: 8),

@@ -1,7 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:portfolio_site/elements/about_me.dart';
 import 'package:portfolio_site/elements/history_item.dart';
-import 'package:portfolio_site/models/history.dart';
 import 'package:portfolio_site/models/history_items_repo.dart';
 
 void main() => runApp(const MyApp());
@@ -51,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const AboutMe(),
             ListView.builder(
               shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
                 return HistoryItem(
                   history: HistoryItemsRepo.allHistoryItems[index],
