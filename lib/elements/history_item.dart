@@ -147,10 +147,10 @@ class _HistoryItemState extends State<HistoryItem> {
         children: <Widget>[
           Visibility(
             visible: !_isMobile,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Flexible(
-                flex: 1,
+            child: Flexible(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.only(right:16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
