@@ -24,30 +24,30 @@ class _HistoryItemState extends State<HistoryItem> {
           height: 100,
           child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: AutoSizeText(
-            key,
-            minFontSize: 8,
-            maxFontSize: 12,
-            maxLines: 2,
-            style: const TextStyle(fontWeight: FontWeight.w500),
-          ),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: AutoSizeText(
+              key,
+              minFontSize: 8,
+              maxFontSize: 12,
+              maxLines: 2,
+              style: const TextStyle(fontWeight: FontWeight.w500),
+            ),
+          )),
         ),
         foreground: SizedBox(
           width: 100,
           height: 100,
           child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: AutoSizeText(
-            key,
-            minFontSize: 8,
-            maxFontSize: 12,
-            maxLines: 2,
-            style: const TextStyle(fontWeight: FontWeight.w700),
-          ),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: AutoSizeText(
+              key,
+              minFontSize: 8,
+              maxFontSize: 12,
+              maxLines: 2,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+            ),
+          )),
         ),
       ));
     });
@@ -57,11 +57,13 @@ class _HistoryItemState extends State<HistoryItem> {
   List<Widget> createProjectDescriptions() {
     List<Widget> projects = [];
     widget.history.projects.forEach((key, value) {
-      Text _shortText = Text(
-        value.item1,
-        style: const TextStyle(height: 1.25),
+      Widget _shortText = Align(
+        alignment: Alignment.centerLeft,
+        child: Text(value.item1, style: const TextStyle(height: 1.25)),
       );
-      Text _longText = Text(value.item2, style: const TextStyle(height: 1.25));
+      Widget _longText = Align(
+          alignment: Alignment.centerLeft,
+          child: Text(value.item2, style: const TextStyle(height: 1.25)));
       projects.add(Neumorphic(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -100,23 +102,23 @@ class _HistoryItemState extends State<HistoryItem> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isMobile = MediaQuery.of(context).size.width <=425;
+    bool _isMobile = MediaQuery.of(context).size.width <= 425;
     List<ToggleElement> projectNames = createToggleElements();
     List<Widget> projectDescriptions = createProjectDescriptions();
     Widget date = FittedBox(
       child: NeumorphicText(
         widget.history.date,
-        textStyle:  NeumorphicTextStyle(
-            fontWeight: FontWeight.w900, fontSize: 20),
-          style:  NeumorphicStyle(
-          color: NeumorphicTheme.currentTheme(context).defaultTextColor,
-          depth: 2,
-          intensity: 0.5,
-          surfaceIntensity: 0.5),
+        textStyle:
+            NeumorphicTextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+        style: NeumorphicStyle(
+            color: NeumorphicTheme.currentTheme(context).defaultTextColor,
+            depth: 2,
+            intensity: 0.5,
+            surfaceIntensity: 0.5),
       ),
     );
     Widget skills = Neumorphic(
-      style: const NeumorphicStyle(depth: -5,intensity: 0.5),
+      style: const NeumorphicStyle(depth: -5, intensity: 0.5),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -124,13 +126,11 @@ class _HistoryItemState extends State<HistoryItem> {
           children: [
             const Align(
                 alignment: Alignment.topLeft,
-                child: FittedBox(
-                    child: Text("Skills utilized"))),
+                child: FittedBox(child: Text("Skills utilized"))),
             ListView.builder(
-              physics:const NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemBuilder:
-                  (BuildContext context, int index) {
+              itemBuilder: (BuildContext context, int index) {
                 return SkillItem(
                   skill: widget.history.skills[index],
                 );
@@ -150,7 +150,7 @@ class _HistoryItemState extends State<HistoryItem> {
             child: Flexible(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.only(right:16.0),
+                padding: const EdgeInsets.only(right: 16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -167,7 +167,7 @@ class _HistoryItemState extends State<HistoryItem> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top:16.0),
+                      padding: const EdgeInsets.only(top: 16.0),
                       child: date,
                     ),
                   ],
@@ -201,18 +201,14 @@ class _HistoryItemState extends State<HistoryItem> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Visibility(
-                    visible: _isMobile,
-                    child: date
-                  ),
+                  Visibility(visible: _isMobile, child: date),
                   const SizedBox(height: 8),
                   Visibility(
-                    visible: _isMobile,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: skills,
-                    )
-                  ),
+                      visible: _isMobile,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: skills,
+                      )),
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 1000),
                     child: Row(
@@ -222,16 +218,14 @@ class _HistoryItemState extends State<HistoryItem> {
                       children: [
                         Visibility(
                           visible: !_isMobile,
-                          child: Expanded(
-                            flex: 1,
-                            child: skills
-                          ),
+                          child: Expanded(flex: 1, child: skills),
                         ),
                         const SizedBox(width: 8),
                         Expanded(
                           flex: 4,
                           child: Neumorphic(
-                            style: const NeumorphicStyle(depth: -5,intensity: 0.5),
+                            style: const NeumorphicStyle(
+                                depth: -5, intensity: 0.5),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
@@ -251,7 +245,7 @@ class _HistoryItemState extends State<HistoryItem> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top:16.0),
+                    padding: const EdgeInsets.only(top: 16.0),
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 1000),
                       child: NeumorphicToggle(
@@ -266,13 +260,14 @@ class _HistoryItemState extends State<HistoryItem> {
                           thumb: Neumorphic(
                             style: NeumorphicStyle(
                                 boxShape: NeumorphicBoxShape.roundRect(
-                                    const BorderRadius.all(Radius.circular(12)))),
+                                    const BorderRadius.all(
+                                        Radius.circular(12)))),
                           ),
                           children: projectNames),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top:16.0),
+                    padding: const EdgeInsets.only(top: 16.0),
                     child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 1000),
                         child: projectDescriptions.elementAt(_selectedIndex)),
